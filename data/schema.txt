@@ -1,0 +1,40 @@
+Table dim_date {
+  date date [pk]
+  year int
+  month int
+  day int
+  weekday varchar
+  is_weekend boolean
+}
+
+Table dim_ticket {
+  ticket_id varchar [pk]
+  ticket_type varchar
+  channel varchar
+  base_price decimal
+}
+
+Table dim_visitor {
+  visitor_id varchar [pk]
+  age_group varchar
+  is_member boolean
+}
+
+Table fact_sale {
+  sale_id varchar [pk]
+  visitor_id varchar [ref: > dim_visitor.visitor_id]
+  ticket_id varchar [ref: > dim_ticket.ticket_id]
+  sale_datetime datetime
+  price_paid decimal
+  payment_method varchar
+}
+
+Table fact_visit {
+  visit_id varchar [pk]
+  visitor_id varchar [ref: > dim_visitor.visitor_id]
+  ticket_id varchar [ref: > dim_ticket.ticket_id]
+  visit_date date [ref: > dim_date.date]
+  entry_time time
+  exit_time time
+  visit_duration int
+}

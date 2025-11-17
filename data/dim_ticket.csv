@@ -1,0 +1,9 @@
+ticket_id,ticket_type,channel,base_price
+TK1,adult,online,15
+TK2,adult,onsite,15
+TK3,child,online,7
+TK4,child,onsite,7
+TK5,senior,online,10
+TK6,senior,onsite,10
+TK7,group,onsite,12
+TK8,group,online,12
